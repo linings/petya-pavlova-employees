@@ -68,14 +68,10 @@ function findPairOfEmployeesWorkedTogetherTheLongest(employeesData) {
             }
         }
     }
-    console.log(pairOfEmployeesAndDaysTheyWorkedTogether);
-    let pairEmployeerWorkedLongestTogether =
-        Math.max.apply(Math, pairOfEmployeesAndDaysTheyWorkedTogether.map((p) => {
-            return p.days;
-        }));
+    let employeesWorkedLongest = pairOfEmployeesAndDaysTheyWorkedTogether.sort((a,b) => a.days - b.days)[pairOfEmployeesAndDaysTheyWorkedTogether.length -1];
 
-    console.log(pairEmployeerWorkedLongestTogether);
-    // return pairEmployeerWorkedLongestTogether;
+    console.log(employeesWorkedLongest);
+    // return employeesWorkedLongest;
 }
 
 const convertTextDataToObject = (employeesData) => {
