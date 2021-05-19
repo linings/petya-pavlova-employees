@@ -22,7 +22,8 @@ const FileUploadPage = () => {
 
     return (
         <div className={styles['wrapper']}>
-                <input className={styles['file-input']} type="file" name="file" onChange={onChange} />
+            <input className={styles['file-input']} type="file" name="file" onChange={onChange} />
+            {console.log(dataToDisplay)}
             {dataToDisplay ?
                 <div className={styles['data-grid-wrapper']}>
                     <div className={styles.row1}>
@@ -43,4 +44,4 @@ const FileUploadPage = () => {
     )
 }
 
-export default FileUploadPage; 
+export default FileUploadPage;

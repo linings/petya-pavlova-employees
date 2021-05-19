@@ -2,18 +2,14 @@ function findPairOfEmployeesWorkedTogetherTheLongest(employeesData) {
 
     let initialEmployeesData = convertTextDataToObject(employeesData);
 
-    console.log(initialEmployeesData);
-
     let days = 86400000;
     let pairOfEmployeesAndDaysTheyWorkedTogether = [];
 
     for (let i = 0; i < initialEmployeesData.length - 1; i++) {
         let formerEmployee = initialEmployeesData[i];
-        formerEmployee[0] = formerEmployee[0].trim();
 
         for (let j = i + 1; j < initialEmployeesData.length; j++) {
             let nextEmployee = initialEmployeesData[j];
-            nextEmployee[0] = nextEmployee[0].trim();
 
             if (formerEmployee[0] !== nextEmployee[0] && formerEmployee[1] === nextEmployee[1]) {
 
@@ -68,15 +64,15 @@ function findPairOfEmployeesWorkedTogetherTheLongest(employeesData) {
             }
         }
     }
+    
     let employeesWorkedLongest = pairOfEmployeesAndDaysTheyWorkedTogether.sort((a,b) => a.days - b.days)[pairOfEmployeesAndDaysTheyWorkedTogether.length -1];
 
-    console.log(employeesWorkedLongest);
     return employeesWorkedLongest;
 }
 
 const convertTextDataToObject = (employeesData) => {
     return employeesData.split('\n').map(d => {
-        return d.split(', ');
+        return d.split(',').map(i => i.trim());
     })
 }
 
